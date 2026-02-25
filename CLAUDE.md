@@ -1125,6 +1125,7 @@ Use this workflow when the user has a finalized front cover and needs a full pap
    - Author name (if page count >= 79)
    - Spine text is rotated 90° (reads top-to-bottom when book is face up, spine facing right)
    - Spine text margin: 0.0625" from spine edges
+   - **Narrow spine handling**: For books near the 79-page threshold (or with long titles), the script automatically shrinks font size to fit. If text still can't fit at minimum legible size (8px), it renders a blank spine and prints a warning. In that case, inform the user that spine text isn't possible at this page count/title length.
 
 7. **Design decisions** — Confirm with user:
    - **Back cover background**: Match the front cover's dominant color/mood, or use a solid color from the series palette

@@ -422,23 +422,53 @@ def compose_spine(dims, title, author_name, bg_color=(255, 255, 255),
 
     # Font size proportional to spine width, but capped
     font_size = min(int(text_max_height * 0.55), inches_to_px(0.12))
-    if custom_font_path:
-        try:
-            title_font = ImageFont.truetype(custom_font_path, font_size)
-        except Exception:
-            title_font = get_font(font_size, bold=True)
-    else:
-        title_font = get_font(font_size, bold=True)
 
-    author_font_size = int(font_size * 0.75)
-    author_font = get_font(author_font_size)
+    # Iteratively shrink font if text doesn't fit the available spine length.
+    # This handles the boundary zone (~79-120 pages) where spine text is allowed
+    # but space is very tight, especially for long titles.
+    spacer = inches_to_px(0.3)
+    min_font_size = 8  # Below this, text is illegible — bail out
+
+    while font_size >= min_font_size:
+        if custom_font_path:
+            try:
+                title_font = ImageFont.truetype(custom_font_path, font_size)
+            except Exception:
+                title_font = get_font(font_size, bold=True)
+        else:
+            title_font = get_font(font_size, bold=True)
+
+        author_font_size = int(font_size * 0.75)
+        author_font = get_font(author_font_size)
+
+        # Measure text widths with a temporary drawing context
+        tmp = Image.new("RGB", (1, 1))
+        tmp_draw = ImageDraw.Draw(tmp)
+
+        title_bbox = tmp_draw.textbbox((0, 0), title, font=title_font)
+        title_w = title_bbox[2] - title_bbox[0]
+
+        author_bbox = tmp_draw.textbbox((0, 0), author_name, font=author_font)
+        author_w = author_bbox[2] - author_bbox[0]
+
+        total_content = title_w + spacer + author_w
+        if total_content <= text_length:
+            break  # Fits — use this font size
+
+        font_size -= 2  # Shrink and retry
+
+    if font_size < min_font_size:
+        # Text can't fit even at minimum size — return blank spine
+        print(f"  Warning: Spine too narrow for text at {dims['page_count']} pages. "
+              f"Rendering blank spine.")
+        return spine
 
     # Create a horizontal text image, then rotate
     # Layout: TITLE ———— AUTHOR NAME
     text_img = Image.new("RGB", (text_length, text_max_height), bg_color)
     text_draw = ImageDraw.Draw(text_img)
 
-    # Measure
+    # Measure final sizes
     title_bbox = text_draw.textbbox((0, 0), title, font=title_font)
     title_w = title_bbox[2] - title_bbox[0]
     title_h = title_bbox[3] - title_bbox[1]
@@ -446,8 +476,6 @@ def compose_spine(dims, title, author_name, bg_color=(255, 255, 255),
     author_bbox = text_draw.textbbox((0, 0), author_name, font=author_font)
     author_w = author_bbox[2] - author_bbox[0]
     author_h = author_bbox[3] - author_bbox[1]
-
-    spacer = inches_to_px(0.3)
 
     # Center vertically
     total_content = title_w + spacer + author_w
