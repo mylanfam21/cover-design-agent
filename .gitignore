@@ -1,0 +1,6 @@
+.env
+output/
+input/
+references/genre-screenshots/
+__pycache__/
+*.pyc
