@@ -1,0 +1,49 @@
+{
+  "_note": "This is an EXAMPLE Series Template Lock created from the Living Waters cover. Rename to [series-name].json and move out of underscore-prefix to activate.",
+  "series_name": "Living Waters Series",
+  "created_from_book": "Living Waters",
+  "created_date": "2026-02-25",
+  "template": {
+    "concept_structure": "Environmental",
+    "imagery_style": "Warm pastoral nature scene — sunlit valley, gentle river, golden sunrise, lush green landscape",
+    "imagery_swap_element": "The specific landscape scene changes per book (river, mountain meadow, garden, lakeside, etc.) while maintaining the same warm pastoral feel",
+    "color_palette": {
+      "temperature": "Warm",
+      "brightness": "Light/bright (NOT dark or moody)",
+      "dominant_colors": ["soft golden yellow", "warm cream", "light sage green", "morning amber"],
+      "avoid_colors": ["dark backgrounds", "heavy shadows", "black", "navy", "moody tones", "cool blues"],
+      "prompt_injection": "BRIGHT and WARM color palette: soft golden yellows, warm creams, light sage greens, morning amber tones. Light airy atmosphere, NOT dark or moody."
+    },
+    "typography": {
+      "title_style": "Bold elegant serif, large, spanning upper portion",
+      "subtitle_style": "Smaller matching serif beneath title, 2-3 lines max",
+      "author_style": "Clean serif at bottom, readable but secondary size",
+      "title_placement": "Upper third to upper half of cover",
+      "author_placement": "Bottom edge with breathing room",
+      "prompt_injection": "Large bold serif title at top. Subtitle in smaller matching font beneath. Author name at bottom."
+    },
+    "composition": {
+      "layout": "Title dominates upper portion, scenic imagery fills center-to-bottom, author name anchors bottom",
+      "focal_direction": "Landscape element (path, river, road) leading eye toward golden light source at horizon",
+      "negative_space": "Cream/golden sky behind title text provides contrast for readability"
+    },
+    "material_treatment": "None — photographic/realistic imagery, no linen/foil/letterpress effects",
+    "lighting": "Soft diffused morning light with gentle volumetric rays, warm golden tones from sunrise at horizon",
+    "model_used": "imagen-4.0-generate-001",
+    "model_settings": {
+      "aspect_ratio": "3:4"
+    }
+  },
+  "source_cover": {
+    "file": "output/living-waters/final/living_waters_fullres.png",
+    "prompt": "Professional book cover for 'Living Waters' by Daniel B. Lancaster. Subtitle 'A 30-Day Journey Through the Lord's Prayer'. Warm inviting pastoral scene: a gentle winding river flowing through a sunlit green meadow valley toward a soft golden sunrise on the horizon. BRIGHT and WARM color palette: soft golden yellows, warm creams, light sage greens, morning amber tones. Soft diffused morning light with gentle volumetric rays. Light airy atmosphere, NOT dark or moody. Christian devotional prayer book aesthetic matching bestselling Amazon prayer devotionals."
+  },
+  "books": [
+    {
+      "number": 1,
+      "title": "Living Waters",
+      "subtitle": "A 30-Day Journey Through the Lord's Prayer",
+      "output_dir": "output/living-waters/"
+    }
+  ]
+}
