@@ -51,6 +51,15 @@ def generate_with_gemini(prompt, model=DEFAULT_MODEL, api_key=None):
     Generate images using Gemini's native image generation (generateContent endpoint).
     Works with gemini-2.5-flash-image, gemini-3-pro-image-preview, etc.
     """
+    # Enforce 5.5x8.5 book cover proportions in every Gemini prompt
+    dimension_lock = (
+        " The image must have exact 5.5 x 8.5 inch book cover proportions: "
+        "a tall portrait rectangle that is significantly taller than wide, "
+        "like a standard paperback book. Never generate a square image."
+    )
+    if "5.5" not in prompt and "tall portrait" not in prompt.lower():
+        prompt = prompt + dimension_lock
+
     url = f"{API_BASE}/{model}:generateContent"
 
     headers = {

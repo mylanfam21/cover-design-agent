@@ -8,8 +8,22 @@
 ## Generation Locks (append to EVERY prompt)
 ```
 High contrast, clean composition. Centered focal point.
-Aspect ratio 2:3. Professional book cover quality.
+Exact 5.5 x 8.5 inch book cover proportions, tall portrait rectangle, significantly taller than wide, standard paperback book shape.
+Professional book cover quality.
+{CATEGORY_PALETTE_LOCK}
 ```
+
+## Market Palette Compliance (MANDATORY)
+
+Before generating ANY cover, you MUST have a Category Palette Lock from Phase 2 market research. Insert the palette direction into EVERY prompt. Example palette lock phrases:
+
+- **Warm/light market:** `"BRIGHT and WARM color palette: soft golden yellows, warm creams, light sage greens. Light airy atmosphere, NOT dark or moody."`
+- **Dark/bold market:** `"BOLD and DRAMATIC color palette: deep navy, rich gold accents, strong contrast. Authoritative and premium feel."`
+- **Soft/muted market:** `"SOFT and MUTED color palette: dusty rose, sage green, cream. Gentle and contemplative, no harsh contrasts."`
+
+**NEVER generate without explicit palette direction.** Different AI models default to different aesthetics (Imagen tends darker, Gemini tends warmer). Always specify the palette to override model defaults.
+
+**Instant disqualifier:** Any cover whose color temperature or brightness contradicts the Category Palette Lock gets rejected, no matter how good the composition is.
 
 ---
 
@@ -23,7 +37,7 @@ Single {OBJECT} {OBJECT_CONTEXT}.
 {LIGHTING}, {MOOD} mood.
 {COMPOSITION_SPACE} negative space for large title placement.
 {GENRE} aesthetic. High contrast, clean composition.
-Professional book cover, aspect ratio 2:3.
+Professional book cover, exact 5.5 x 8.5 inch proportions, tall portrait rectangle, significantly taller than wide.
 Title "{TITLE}" in {FONT_STYLE}, author name "{AUTHOR}" smaller below.
 ```
 
@@ -35,7 +49,7 @@ Natural linen textile background with visible woven fabric texture.
 Warm golden hour side-lighting, peaceful mood.
 65% negative space above for large title placement.
 Christian devotional aesthetic. High contrast, clean composition.
-Professional book cover, aspect ratio 2:3.
+Professional book cover, exact 5.5 x 8.5 inch proportions, tall portrait rectangle, significantly taller than wide.
 Title "The Master Key" in bold serif font, author name "Dan Smith" smaller below.
 ```
 
@@ -64,7 +78,7 @@ Book cover for "{TITLE}" by {AUTHOR}. {SUBTITLE_LINE}
 {FOCAL_DIRECTION}.
 {GENRE} aesthetic. High contrast, clean composition.
 Room for title text in {TEXT_ZONE}.
-Professional book cover, aspect ratio 2:3.
+Professional book cover, exact 5.5 x 8.5 inch proportions, tall portrait rectangle, significantly taller than wide.
 Title "{TITLE}" in {FONT_STYLE}, author name "{AUTHOR}" smaller.
 ```
 
@@ -77,7 +91,7 @@ Volumetric light rays through canopy, warm golden tones.
 Path leading from foreground into illuminated distance.
 Christian spiritual growth aesthetic. High contrast, clean composition.
 Room for title text in upper third.
-Professional book cover, aspect ratio 2:3.
+Professional book cover, exact 5.5 x 8.5 inch proportions, tall portrait rectangle, significantly taller than wide.
 Title "The Narrow Path" in bold serif font, author name "Dan Smith" smaller.
 ```
 
@@ -105,7 +119,7 @@ Book cover for "{TITLE}" by {AUTHOR}. {SUBTITLE_LINE}
 {LIGHTING}.
 {COMPOSITION_PLACEMENT}.
 {GENRE} aesthetic. High contrast, clean composition.
-No full faces visible. Professional book cover, aspect ratio 2:3.
+No full faces visible. Professional book cover, exact 5.5 x 8.5 inch proportions, tall portrait rectangle, significantly taller than wide.
 Title "{TITLE}" in {FONT_STYLE}, author name "{AUTHOR}" smaller.
 ```
 
@@ -117,7 +131,7 @@ Hopeful, uplifting mood, sense of freedom and release.
 Dramatic backlighting creating strong silhouette with warm rim light.
 Hands in lower third, dove rising toward upper center.
 Christian worship aesthetic. High contrast, clean composition.
-No full faces visible. Professional book cover, aspect ratio 2:3.
+No full faces visible. Professional book cover, exact 5.5 x 8.5 inch proportions, tall portrait rectangle, significantly taller than wide.
 Title "Surrender" in large bold sans-serif, author name "Dan Smith" smaller.
 ```
 
@@ -144,7 +158,7 @@ Book cover for "{TITLE}" by {AUTHOR}. {SUBTITLE_LINE}
 {LIGHTING}, dramatic contrast.
 {COMPOSITION_DIRECTION}.
 {GENRE} aesthetic. High contrast, clean composition.
-Professional book cover, aspect ratio 2:3.
+Professional book cover, exact 5.5 x 8.5 inch proportions, tall portrait rectangle, significantly taller than wide.
 Title "{TITLE}" in {FONT_STYLE}, author name "{AUTHOR}" smaller.
 ```
 
@@ -157,7 +171,7 @@ Powerful, triumphant mood, high energy.
 Intense rim lighting on crack edges, deep shadows contrasting with warm amber light.
 Light source in upper center, cracks radiating outward.
 Christian spiritual warfare aesthetic. High contrast, clean composition.
-Professional book cover, aspect ratio 2:3.
+Professional book cover, exact 5.5 x 8.5 inch proportions, tall portrait rectangle, significantly taller than wide.
 Title "Breakthrough" in massive bold sans-serif, author name "Dan Smith" smaller.
 ```
 
@@ -185,7 +199,7 @@ Book cover for "{TITLE}" by {AUTHOR}. {SUBTITLE_LINE}
 {LIGHTING}, premium mood.
 Large centered negative space dominated by typography.
 {GENRE} aesthetic. Clean, authoritative, premium feel.
-Professional book cover, aspect ratio 2:3.
+Professional book cover, exact 5.5 x 8.5 inch proportions, tall portrait rectangle, significantly taller than wide.
 Title "{TITLE}" occupying 60-70% of cover in {FONT_STYLE}.
 Subtitle and author name "{AUTHOR}" secondary.
 ```
@@ -198,7 +212,7 @@ Thin gold foil line border element framing the text area.
 Soft directional lighting catching the linen weave, premium mood.
 Large centered negative space dominated by typography.
 Christian Bible study aesthetic. Clean, authoritative, premium feel.
-Professional book cover, aspect ratio 2:3.
+Professional book cover, exact 5.5 x 8.5 inch proportions, tall portrait rectangle, significantly taller than wide.
 Title "The Word Study Method" occupying 60-70% of cover in bold modern serif.
 Subtitle and author name "Dan Smith" secondary.
 ```
